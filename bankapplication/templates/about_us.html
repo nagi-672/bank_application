@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mystatic/style.css' %}">
+    <title>Document</title>
+<body>
+    <div class="header">
+        <nav>
+            <ul>
+                <a href="{% url 'homev' %}">Home</a>
+                <a href="{% url 'new_accountv' %}">New Account</a>
+                <a href="{% url 'balancev' %}">Balance Form</a>
+                <a href="{% url 'depositv' %}">Deposite</a>
+                <a href="{% url 'withdrawv' %}">Withdraw</a>
+                <a href="{% url 'transferv' %}">Transfer</a>
+                <a href="{% url 'close_accountv' %}">Close Account</a>
+                <a href="{% url 'about_usv' %}">About Us</a>
+            </ul>
+        </nav>
+    </div>
+    <center>
+        <h1>About Us</h1>
+        <p>Bank Name : JDFC BANK</p>
+        <p>Bank Email : jdfc123@gmail.com</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quasi aut ipsa vitae optio tempora dolores fuga. Perferendis dignissimos ex ut distinctio velit illum, nisi obcaecati iste maxime similique fugiat mollitia? Harum temporibus vero adipisci pariatur qui minus rerum animi praesentium illo debitis eligendi dolores, corporis ipsum, neque, nam sint.</p>
+    </center>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mystatic/style.css' %}">
+    <title>Document</title>
+<body>
+    <center>
+        <div class="header">
+        <nav>
+            <ul>
+                <a href="{% url 'homev' %}">Home</a>
+                <a href="{% url 'new_accountv' %}">New Account</a>
+                <a href="{% url 'balancev' %}">Balance Form</a>
+                <a href="{% url 'depositv' %}">Deposite</a>
+                <a href="{% url 'withdrawv' %}">Withdraw</a>
+                <a href="{% url 'transferv' %}">Transfer</a>
+                <a href="{% url 'close_accountv' %}">Close Account</a>
+                <a href="{% url 'about_usv' %}">About Us</a>
+            </ul>
+        </nav>
+    </div>
+    <h1 class="transfer_h1">TRANSFER FORM</h1>
+        <form method="POST">
+            {% csrf_token %}
+           <div class="form-container">
+                 {% for field in form %}
+                 <div class="form-row">
+                    <label>{{ field.label }}:</label>
+                    {{ field }}
+                 </div>
+                 {% endfor %}
+            </div>
+            <div class="transfer_buttons">
+                <button type="submit" class="register">Submit</button>
+                <button type="submit" class="clear">Clear</button>
+            </div>
+            <br><br>
+            {% if msg %}
+             <h2 style="color:red;">{{msg}}</h2>
+            {% endif %} 
+            {{ form.errors }}
+        </form>
+    </center>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mystatic/style.css' %}">
+    <title>Document</title>
+<body>
+    <div class="header">
+        <nav>
+            <ul>
+                <a href="{% url 'homev' %}">Home</a>
+                <a href="{% url 'new_accountv' %}">New Account</a>
+                <a href="{% url 'balancev' %}">Balance Form</a>
+                <a href="{% url 'depositv' %}">Deposite</a>
+                <a href="{% url 'withdrawv' %}">Withdraw</a>
+                <a href="{% url 'transferv' %}">Transfer</a>
+                <a href="{% url 'close_accountv' %}">Close Account</a>
+                <a href="{% url 'about_usv' %}">About Us</a>
+            </ul>
+        </nav>
+    </div>
+    <center>
+        <form method="POST">
+            <h1>New Account</h1>
+            {%  csrf_token %}
+            <div class="form-container">
+                 {% for field in form %}
+                 <div class="form-row">
+                    <label>{{ field.label }}:</label>
+                    {{ field }}
+                 </div>
+                 {% endfor %}
+            </div>
+            <button type="submit" class="register">Register</button>
+
+            {% if form.non_field_errors %}
+              <p style="color:red;">
+                {% for error in form.non_field_errors %}
+                    {{ error }}
+                {% endfor %}   
+              </p>
+              {% endif %}
+        </form>
+        <br>
+    </center>
+</body>
+</html>
